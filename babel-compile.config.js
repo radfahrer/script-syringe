@@ -1,8 +1,5 @@
-module.exports = {
-    presets: [['@babel/preset-env', {
-        useBuiltIns: 'usage',
-        corejs: 3,
-        debug: true
-    }]],
-    ignore: ["**/*.test.mjs"]
-}
+const baseConfig = { ...require('./babel.config') };
+
+baseConfig.ignore = ["**/*.test.mjs"]
+
+module.exports = baseConfig;
