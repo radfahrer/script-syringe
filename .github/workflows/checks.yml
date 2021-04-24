@@ -1,0 +1,32 @@
+name: Checks and Balances
+on: 
+    pull_request:
+        branches:
+            '*'
+jobs:
+    checkout:
+        name: Check Out Code
+        steps:
+            - uses: actions/checkout@v2
+
+    install:
+        name: Install
+        needs: ['checkout']
+        steps:
+            - run: 'npm install'
+
+    test:
+        name: Run Tests
+        needs: ['install']
+        steps: 
+            - run: 'npm test -- --coverage'
+    report:
+        name: Report Test Resuts
+        needs: ['test']
+        steps: 
+            - name: Send Coverage to Code Climate
+              uses: paambaati/codeclimate-action@v2.7.5
+              env:
+                CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_KEY }}
+              with:
+                  debug: true
