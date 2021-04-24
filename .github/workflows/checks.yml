@@ -6,22 +6,26 @@ on:
 jobs:
     checkout:
         name: Check Out Code
+        runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v2
 
     install:
         name: Install
+        runs-on: ubuntu-latest
         needs: ['checkout']
         steps:
             - run: 'npm install'
 
     test:
         name: Run Tests
+        runs-on: ubuntu-latest
         needs: ['install']
         steps: 
             - run: 'npm test -- --coverage'
     report:
         name: Report Test Resuts
+        runs-on: ubuntu-latest
         needs: ['test']
         steps: 
             - name: Send Coverage to Code Climate
