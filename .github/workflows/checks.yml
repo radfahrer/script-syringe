@@ -4,33 +4,19 @@ on:
         branches:
             '*'
 jobs:
-    checkout:
-        name: Check Out Code
+    run-checks:
         runs-on: ubuntu-latest
         steps:
-            - uses: actions/checkout@v2
-
-    install:
-        name: Install
-        runs-on: ubuntu-latest
-        needs: ['checkout']
-        steps:
-            - run: 'npm install'
-
-    test:
-        name: Run Tests
-        runs-on: ubuntu-latest
-        needs: ['checkout', 'install']
-        steps: 
-            - run: 'npm test -- --coverage'
-    report:
-        name: Report Test Resuts
-        runs-on: ubuntu-latest
-        needs: ['test']
-        steps: 
+            - name: Check Out Code
+              uses: actions/checkout@v2
+            - name: Install
+              run: 'npm install'
+            - name: Run Tests
+              run: 'npm test -- --coverage'
             - name: Send Coverage to Code Climate
               uses: paambaati/codeclimate-action@v2.7.5
               env:
                 CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_KEY }}
               with:
                   debug: true
+           
