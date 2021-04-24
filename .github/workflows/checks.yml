@@ -1,10 +1,10 @@
-name: Checks and Balances
 on: 
     pull_request:
         branches:
             '*'
 jobs:
     run-checks:
+        name: Run Checks
         runs-on: ubuntu-latest
         steps:
             - name: Check Out Code
@@ -19,4 +19,5 @@ jobs:
                 CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_KEY }}
               with:
                   debug: true
+                  coverageLocations: ${{github.workspace}}/coverage/lcov.info:lcov
            
