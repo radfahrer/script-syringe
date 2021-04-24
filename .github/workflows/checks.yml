@@ -20,7 +20,7 @@ jobs:
     test:
         name: Run Tests
         runs-on: ubuntu-latest
-        needs: ['install']
+        needs: ['checkout', 'install']
         steps: 
             - run: 'npm test -- --coverage'
     report:
