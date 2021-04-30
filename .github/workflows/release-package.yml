@@ -1,11 +1,11 @@
-name: Node.js Package
+name: Publish
 
 on:
   release:
     types: [created]
 
 jobs:
-  build:
+  test:
     name: Build & Test
     runs-on: ubuntu-latest
     steps:
@@ -18,10 +18,10 @@ jobs:
 
   publish-gpr:
     name: Publish
-    needs: build
+    needs: test
     runs-on: ubuntu-latest
     permissions:
-      packages: write
+      actions: write
       contents: read
     steps:
       - uses: actions/checkout@v2
