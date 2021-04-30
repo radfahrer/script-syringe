@@ -1,5 +1,5 @@
 {
-  "name": "script-syringe",
+  "name": "@radfahrer/script-syringe",
   "version": "0.0.2",
   "description": "javascript injector",
   "main": "dist/syringe.js",
