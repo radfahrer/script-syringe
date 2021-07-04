@@ -34,6 +34,16 @@ describe('inject', () => {
 
         // Assert
         expect(appendSpy).toHaveBeenCalledTimes(2);
+    });
 
+    it('should throw an error if unknown attributes are detected', () => {
+        // Arrange
+        const scripts = [{ src: 'foo/bar', onLord: jest.fn() }];
+
+        // Act
+        // Assert
+        expect(() => {
+            inject(scripts);
+        }).toThrow(/Unsupported attribute/);
     });
 });

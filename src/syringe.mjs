@@ -3,7 +3,12 @@ function injectScript({ options = {}, ...attributes }) {
 
     /* assign attributes */
     Object.keys(attributes).forEach((key) => {
-        script[key] = attributes[key];
+        /* validate attribute */
+        if (typeof script[key] === 'undefined') {
+            throw new Error(`Unsupported attribute detected: ${key}`);
+        } else {
+            script[key] = attributes[key];
+        }
     });
 
     /* inject script */
