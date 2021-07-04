@@ -3,7 +3,9 @@
   "version": "0.0.2",
   "description": "javascript injector",
   "main": "dist/syringe.js",
-  "files": ["dist/syringe.js"],
+  "files": [
+    "dist/syringe.js"
+  ],
   "scripts": {
     "test": "jest",
     "prepare": "npm run compile",
