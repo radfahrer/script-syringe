@@ -1,6 +1,6 @@
 {
   "name": "@radfahrer/script-syringe",
-  "version": "0.0.4",
+  "version": "0.0.2",
   "description": "javascript injector",
   "main": "dist/syringe.js",
   "files": [
