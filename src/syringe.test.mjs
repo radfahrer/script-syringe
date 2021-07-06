@@ -24,7 +24,7 @@ describe('inject', () => {
 
     });
 
-    it('should handle multiple scrits', () => {
+    it('should handle multiple scripts', () => {
         // Arrange
         const scripts = [{ src: 'foo/bar' }, { src: 'foo/baz' }];
         appendSpy.mockClear();
