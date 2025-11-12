@@ -10,5 +10,6 @@
   "promptScope": "suggest",
   "promptBody": false,
   "promptBreaking": false,
+  "promptIssues": false,
   "scopes": "staged"
 }
