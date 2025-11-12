@@ -1,0 +1,14 @@
+{
+  "types": [
+    "feat",
+    "fix",
+    "chore",
+    "docs",
+    "refactor",
+    "test"
+  ],
+  "promptScope": "suggest",
+  "promptBody": false,
+  "promptBreaking": false,
+  "scopes": "staged"
+}
