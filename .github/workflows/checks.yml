@@ -1,8 +1,5 @@
 name: Checks
 on: 
-    push:
-        branches: 
-            'main'
     pull_request:
         branches:
             'main'
@@ -17,12 +14,4 @@ jobs:
               run: 'npm install'
             - name: Run Tests
               run: 'npm test -- --coverage'
-            - name: Send Coverage to Code Climate
-              if: github.ref == 'refs/heads/main'
-              uses: paambaati/codeclimate-action@v2.7.5
-              env:
-                CC_TEST_REPORTER_ID: ${{ secrets.CODE_CLIMATE_KEY }}
-              with:
-                  debug: true
-                  coverageLocations: ${{github.workspace}}/coverage/lcov.info:lcov
            
