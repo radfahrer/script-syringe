@@ -13,7 +13,7 @@ export default defineConfig({
 
         // coverage configuration
         coverage: {
-            provider: 'c8', // use c8 for coverage
+            provider: 'v8',
             reporter: ['text', 'lcov'],
             exclude: ['node_modules/', 'dist/']
         }
