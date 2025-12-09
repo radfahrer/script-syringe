@@ -1,15 +1,14 @@
+// @vitest-environment jsdom
+
 import { inject } from './syringe';
+import { expect, describe, it, beforeEach, vi } from 'vitest';
 
 describe('inject', () => {
     let scriptObject, appendSpy;
 
     beforeEach(() => {
         expect.hasAssertions();
-        appendSpy = jest.spyOn(document.head, 'appendChild');
-        // window.setTimeout(() => {
-        //     const script = appendSpy.mock.calls[0][0];
-        //     script.onload();
-        // }, 100)
+        appendSpy = vi.spyOn(document.head, 'appendChild');
     });
 
     it('should inject the script into the HEAD', () => {
@@ -38,7 +37,7 @@ describe('inject', () => {
 
     it('should throw an error if unknown attributes are detected', () => {
         // Arrange
-        const scripts = [{ src: 'foo/bar', onLord: jest.fn() }];
+        const scripts = [{ src: 'foo/bar', onLord: vi.fn() }];
 
         // Act
         // Assert
