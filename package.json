@@ -31,7 +31,7 @@
     "@babel/cli": "^7.14.5",
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.14.7",
-    "@vitest/coverage-v8": "^4.0.13",
+    "@vitest/coverage-v8": "^4.0.18",
     "vitest": "^4.0.8"
   }
 }
